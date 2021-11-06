@@ -5,7 +5,12 @@
       "Name": "Open SmartLock",
       "States": [
         {
-          "Image": "images/actionDefaultImage",
+          "Image": "images/SmartLockStates/closeDoor",
+          "TitleAlignment": "middle",
+          "FontSize": "16"
+        },
+        {
+          "Image": "images/SmartLockStates/openDoor",
           "TitleAlignment": "middle",
           "FontSize": "16"
         }

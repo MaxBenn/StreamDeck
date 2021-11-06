@@ -104,6 +104,18 @@
 
 	<!-- Post build scripts that must not be deployed with the executable -->
 	<ItemGroup>
+		<None Update="images\SmartLockStates\closeDoor%402x.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="images\SmartLockStates\closeDoor.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="images\SmartLockStates\openDoor%402x.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="images\SmartLockStates\openDoor.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
 		<None Update="RegisterPluginAndStartStreamDeck.ps1">
 			<CopyToOutputDirectory>Never</CopyToOutputDirectory>
 		</None>
