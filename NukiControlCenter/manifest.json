@@ -12,7 +12,7 @@
       ],
       "SupportedInMultiActions": false,
       "Tooltip": "The first action for the MyPlugin Stream Deck plugin",
-      "UUID": "com.yourcompany.plugin.action.DefaultPluginAction"
+      "UUID": "raketentier.nuki.plugin.action.OpenSmartLock"
     }
   ],
 	"Category": "Your Plugin Category",
