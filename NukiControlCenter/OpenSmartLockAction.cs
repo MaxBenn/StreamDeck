@@ -34,6 +34,7 @@ namespace NukiControlCenter
         public override async Task OnKeyUp(StreamDeckEventPayload args)
         {
             await Manager.ShowOkAsync(args.context);
+            await Manager.SetStateAsync(args.context, 1);
         }
 
         public override async Task OnDidReceiveSettings(StreamDeckEventPayload args)
