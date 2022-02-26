@@ -16,18 +16,15 @@ namespace WebAPI_Testing.Api
     {
         private static HttpClient _client;
 
-        public static HttpClient Client
-        {
-            get { return _client ?? InitializeClient(); }
-        }
+        public static HttpClient Client => _client ?? InitializeClient();
 
         private static HttpClient InitializeClient()
         {
-            var client = new HttpClient();
-            client.BaseAddress = new Uri("https://api.nuki.io/");
-            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            client.DefaultRequestHeaders.Add("Authorization", $"Bearer {Models.Authorization.ApiToken}");
-            return client;
+            _client = new HttpClient();
+            _client.BaseAddress = new Uri("https://api.nuki.io/");
+            _client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            _client.DefaultRequestHeaders.Add("Authorization", $"Bearer {Models.Authorization.ApiToken}");
+            return _client;
         }
 
         /// <summary>
