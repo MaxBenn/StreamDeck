@@ -1,17 +1,13 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using Newtonsoft.Json;
 
-namespace NukiControlCenter.models.SmartLock
+namespace NukiControlCenter.models.SmartLock;
+
+public class WebConfig
 {
-    public class WebConfig
-    {
-        [JsonProperty("batteryWarningPerMailEnabled")]
-        public bool BatteryWarningPerMailEnabled { get; set; }
-        [JsonProperty("dismissedLiftUpHandleWarning")]
-        public IList<int> DismissedLiftUpHandleWarnings { get; set; }
-    }
+    [JsonProperty("batteryWarningPerMailEnabled")]
+    public bool BatteryWarningPerMailEnabled { get; set; }
+
+    [JsonProperty("dismissedLiftUpHandleWarning")]
+    public IList<int> DismissedLiftUpHandleWarnings { get; set; }
 }

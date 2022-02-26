@@ -13,7 +13,7 @@ function connectElgatoStreamDeckSocket(inPort, inUUID, inRegisterEvent, inInfo, 
     uuid = inUUID;
     actionInfo = JSON.parse(inActionInfo);
     inInfo = JSON.parse(inInfo);
-    websocket = new WebSocket('ws://localhost:' + inPort);
+    websocket = new WebSocket("ws://localhost:" + inPort);
 
     //initialize values
     if (actionInfo.payload.settings.settingsModel) {
@@ -21,33 +21,33 @@ function connectElgatoStreamDeckSocket(inPort, inUUID, inRegisterEvent, inInfo, 
         settingsModel.SmartLockId = actionInfo.payload.settings.settingsModel.SmartLockId;
     }
 
-    document.getElementById('apiToken').value = settingsModel.ApiToken;
-    document.getElementById('smartLockId').value = settingsModel.SmartLockId;
+    document.getElementById("apiToken").value = settingsModel.ApiToken;
+    document.getElementById("smartLockId").value = settingsModel.SmartLockId;
 
-    websocket.onopen = function () {
+    websocket.onopen = function() {
         var json = { event: inRegisterEvent, uuid: inUUID };
         // register property inspector to Stream Deck
         websocket.send(JSON.stringify(json));
 
     };
 
-    websocket.onmessage = function (evt) {
+    websocket.onmessage = function(evt) {
         // Received message from Stream Deck
         var jsonObj = JSON.parse(evt.data);
-        var sdEvent = jsonObj['event'];
+        var sdEvent = jsonObj["event"];
         switch (sdEvent) {
-            case "didReceiveSettings":
-                if (jsonObj.payload.settings.settingsModel.ApiToken) {
-                    settingsModel.ApiToken = jsonObj.payload.settings.settingsModel.ApiToken;
-                    document.getElementById('apiToken').value = settingsModel.ApiToken;
-                }
-                if (jsonObj.payload.settings.settingsModel.SmartLockId) {
-                    settingsModel.SmartLockId = jsonObj.payload.settings.settingsModel.SmartLockId;
-                    document.getElementById('smartLockId').value = settingsModel.SmartLockId;
-                }
-                break;
-            default:
-                break;
+        case "didReceiveSettings":
+            if (jsonObj.payload.settings.settingsModel.ApiToken) {
+                settingsModel.ApiToken = jsonObj.payload.settings.settingsModel.ApiToken;
+                document.getElementById("apiToken").value = settingsModel.ApiToken;
+            }
+            if (jsonObj.payload.settings.settingsModel.SmartLockId) {
+                settingsModel.SmartLockId = jsonObj.payload.settings.settingsModel.SmartLockId;
+                document.getElementById("smartLockId").value = settingsModel.SmartLockId;
+            }
+            break;
+        default:
+            break;
         }
     };
 }
@@ -65,4 +65,3 @@ const setSettings = (value, param) => {
         websocket.send(JSON.stringify(json));
     }
 };
-

@@ -20,30 +20,30 @@
       "UUID": "raketentier.nuki.plugin.action.OpenSmartLock"
     }
   ],
-	"Category": "Nuki Control Center",
-	"CategoryIcon": "images/category/categoryIcon",
-	"Disabled":  false,
-	"Author": "Maximilian Benning",
-	"CodePathWin": "NukiControlCenter.exe",
-	"CodePathMac":  "NukiControlCenter",
+  "Category": "Nuki Control Center",
+  "CategoryIcon": "images/category/categoryIcon",
+  "Disabled": false,
+  "Author": "Maximilian Benning",
+  "CodePathWin": "NukiControlCenter.exe",
+  "CodePathMac": "NukiControlCenter",
   "PropertyInspectorPath": "property_inspector/property_inspector.html",
   "Description": "Control your Nuki Enviroment from the StreamDeck. Icons will tell you the state of your Devices.",
   "Name": "Nuki Control Center",
   "Icon": "images/pluginIcon",
   "URL": "https://www.elgato.com/gaming/stream-deck",
   "Version": "1.0",
-	"SDKVersion": 2,
-	"Software": {
-		"MinimumVersion":  "4.1"
-	},
-	"OS": [
+  "SDKVersion": 2,
+  "Software": {
+    "MinimumVersion": "4.1"
+  },
+  "OS": [
     {
-        "Platform": "mac",
-        "MinimumVersion" : "10.11"
+      "Platform": "mac",
+      "MinimumVersion": "10.11"
     },
     {
-        "Platform": "windows",
-        "MinimumVersion" : "10"
+      "Platform": "windows",
+      "MinimumVersion": "10"
     }
   ]
 }

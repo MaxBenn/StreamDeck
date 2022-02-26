@@ -1,35 +1,18 @@
-﻿using McMaster.Extensions.CommandLineUtils;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
-using Serilog;
-using Serilog.Settings.Configuration;
+﻿using System.Threading.Tasks;
 using StreamDeckLib;
-using System;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Threading;
-using System.Threading.Tasks;
+using StreamDeckLib.Config;
 
-namespace NukiControlCenter
+namespace NukiControlCenter;
+
+internal class Program
 {
-    class Program
+    private static async Task Main(string[] args)
     {
-
-        static async Task Main(string[] args)
+        using (var config = ConfigurationBuilder.BuildDefaultConfiguration(args))
         {
-
-            using (var config = StreamDeckLib.Config.ConfigurationBuilder.BuildDefaultConfiguration(args))
-            {
-
-                await ConnectionManager.Initialize(args, config.LoggerFactory)
-                                                             .RegisterAllActions(typeof(Program).Assembly)
-                                                             .StartAsync();
-
-            }
-
+            await ConnectionManager.Initialize(args, config.LoggerFactory)
+                .RegisterAllActions(typeof(Program).Assembly)
+                .StartAsync();
         }
-
     }
 }
