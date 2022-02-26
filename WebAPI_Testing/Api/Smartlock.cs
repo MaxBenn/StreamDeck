@@ -20,8 +20,10 @@ namespace WebAPI_Testing.Api
 
         private static HttpClient InitializeClient()
         {
-            _client = new HttpClient();
-            _client.BaseAddress = new Uri("https://api.nuki.io/");
+            _client = new HttpClient
+            {
+                BaseAddress = new Uri("https://api.nuki.io/"),
+            };
             _client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             _client.DefaultRequestHeaders.Add("Authorization", $"Bearer {Models.Authorization.ApiToken}");
             return _client;
@@ -40,6 +42,7 @@ namespace WebAPI_Testing.Api
                 return JsonConvert.DeserializeObject<Models.Smartlock.Smartlock[]>(responseString);
             }
         }
+
         /// <summary>
         /// Create a Smartlock
         /// </summary>
@@ -51,7 +54,8 @@ namespace WebAPI_Testing.Api
         /// <param name="authSecret"></param>
         /// <param name="lmType"></param>
         /// <returns></returns>
-        public static async Task<Models.Smartlock.Smartlock> PutSmartlockAsync(int smartlockId, int type, string name, string authUuid, int authId, string authSecret, int lmType)
+        public static async Task<Models.Smartlock.Smartlock> PutSmartlockAsync(int smartlockId, int type, string name,
+            string authUuid, int authId, string authSecret, int lmType)
         {
             List<KeyValuePair<string, string>> allInputParams = new List<KeyValuePair<string, string>>();
             allInputParams.Add(new KeyValuePair<string, string>("smartlockId", $"{smartlockId}"));
@@ -70,6 +74,7 @@ namespace WebAPI_Testing.Api
                 return JsonConvert.DeserializeObject<Models.Smartlock.Smartlock>(responseString);
             }
         }
+
         /// <summary>
         /// Delete a Smartlock
         /// </summary>
@@ -83,6 +88,7 @@ namespace WebAPI_Testing.Api
                 return response.StatusCode;
             }
         }
+
         /// <summary>
         /// Get a Smartlock
         /// </summary>
@@ -97,6 +103,7 @@ namespace WebAPI_Testing.Api
                 return JsonConvert.DeserializeObject<Models.Smartlock.Smartlock>(responseString);
             }
         }
+
         /// <summary>
         /// Update a Smartlock
         /// </summary>
@@ -111,13 +118,14 @@ namespace WebAPI_Testing.Api
             allInputParams.Add(new KeyValuePair<string, string>("name", $"{name}"));
             allInputParams.Add(new KeyValuePair<string, string>("favorite", $"{favorite}"));
             var requestParams = new FormUrlEncodedContent(allInputParams);
-            
+
             using (Client)
             {
                 var response = await Client.PostAsync($"smartlock/{smartlockId}", requestParams);
                 return response.StatusCode;
             }
         }
+
         /// <summary>
         /// Lock & unlock a smartlock with options
         /// </summary>
@@ -138,6 +146,7 @@ namespace WebAPI_Testing.Api
                 return response.StatusCode;
             }
         }
+
         /// <summary>
         /// Lock a smartlock
         /// </summary>
@@ -147,13 +156,14 @@ namespace WebAPI_Testing.Api
         {
             List<KeyValuePair<string, string>> allInputParams = new List<KeyValuePair<string, string>>();
             var requestParams = new FormUrlEncodedContent(allInputParams);
-            
+
             using (Client)
             {
                 var response = await Client.PostAsync($"smartlock/{smartlockId}/action/lock", requestParams);
                 return response.StatusCode;
             }
         }
+
         /// <summary>
         /// Unlock a smartlock
         /// </summary>
@@ -170,6 +180,7 @@ namespace WebAPI_Testing.Api
                 return response.StatusCode;
             }
         }
+
         /// <summary>
         /// Updates a smartlock admin pin
         /// </summary>
@@ -188,6 +199,5 @@ namespace WebAPI_Testing.Api
                 return response.StatusCode;
             }
         }
-
     }
 }
