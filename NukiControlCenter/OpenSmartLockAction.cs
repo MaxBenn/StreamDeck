@@ -1,13 +1,9 @@
-﻿using Newtonsoft.Json;
-using NukiControlCenter.enumerations;
-using NukiControlCenter.models.SmartLock;
-using StreamDeckLib;
+﻿using StreamDeckLib;
 using StreamDeckLib.Messages;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace NukiControlCenter
@@ -17,18 +13,16 @@ namespace NukiControlCenter
     {
         public override async Task OnKeyDown(StreamDeckEventPayload args)
         {
-            using (var client = new HttpClient())
-            {
-                client.BaseAddress = new Uri("https://api.nuki.io/");
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                client.DefaultRequestHeaders.Add("Authorization", $"Bearer {SettingsModel.ApiToken}");
+            using var client = new HttpClient();
+            client.BaseAddress = new Uri("https://api.nuki.io/");
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            client.DefaultRequestHeaders.Add("Authorization", $"Bearer {SettingsModel.ApiToken}");
 
 
-                List<KeyValuePair<string, string>> allInputParams = new List<KeyValuePair<string, string>>();
+            var allInputParams = new List<KeyValuePair<string, string>>();
 
-                var requestParams = new FormUrlEncodedContent(allInputParams);
-                var response = await client.PostAsync($"smartlock/{SettingsModel.SmartLockId}/action/unlock", requestParams).ConfigureAwait(false);
-            }
+            var requestParams = new FormUrlEncodedContent(allInputParams);
+            await client.PostAsync($"smartlock/{SettingsModel.SmartLockId}/action/unlock", requestParams).ConfigureAwait(false);
         }
 
         public override async Task OnKeyUp(StreamDeckEventPayload args)
