@@ -7,6 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NukiControlCenter", "NukiCo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAPI_Testing", "WebAPI_Testing\WebAPI_Testing.csproj", "{E797613C-1446-446C-AAF9-2CF8052FB127}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Macro", "Macro\Macro.csproj", "{E9CABB8E-B8E4-4C72-8037-03ED0E210AD1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RageQuitter", "RageQuitter\RageQuitter.csproj", "{A4C91A4B-65E7-456D-8884-9EAF47915107}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{E797613C-1446-446C-AAF9-2CF8052FB127}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E797613C-1446-446C-AAF9-2CF8052FB127}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E797613C-1446-446C-AAF9-2CF8052FB127}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9CABB8E-B8E4-4C72-8037-03ED0E210AD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9CABB8E-B8E4-4C72-8037-03ED0E210AD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9CABB8E-B8E4-4C72-8037-03ED0E210AD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9CABB8E-B8E4-4C72-8037-03ED0E210AD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4C91A4B-65E7-456D-8884-9EAF47915107}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4C91A4B-65E7-456D-8884-9EAF47915107}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4C91A4B-65E7-456D-8884-9EAF47915107}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4C91A4B-65E7-456D-8884-9EAF47915107}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

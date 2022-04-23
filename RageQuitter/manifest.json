@@ -1,0 +1,39 @@
+{
+  "Actions": [
+    {
+      "Icon": "images/actionIcon",
+      "Name": "Rage quit",
+      "States": [
+        {
+          "Image": "images/actionDefaultImage",
+          "TitleAlignment": "middle",
+          "FontSize": "16"
+        }
+      ],
+      "SupportedInMultiActions": false,
+      "Tooltip": "Rage quit from any steam game you are currently playing",
+      "UUID": "de.frittenmittitten.plugin.action.RageQuit"
+    }
+  ],
+	"Category": "RageQuit-O-Master 3000",
+	"CategoryIcon": "images/category/categoryIcon",
+	"Disabled":  false,
+	"Author": "RaketenTier",
+	"CodePathWin": "RageQuitter.exe",
+  "PropertyInspectorPath": "property_inspector/property_inspector.html",
+  "Description": "A simple tool to rage quit any steam game.",
+  "Name": "RageQuitter",
+  "Icon": "images/pluginIcon",
+  "URL": "https://www.elgato.com/gaming/stream-deck",
+  "Version": "0.9.7.302",
+	"SDKVersion": 2,
+	"Software": {
+		"MinimumVersion":  "4.1"
+	},
+	"OS": [
+    {
+        "Platform": "windows",
+        "MinimumVersion" : "10"
+    }
+  ]
+}
