@@ -1,22 +1,10 @@
-﻿using McMaster.Extensions.CommandLineUtils;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
-using Serilog;
-using Serilog.Settings.Configuration;
-using StreamDeckLib;
-using System;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Threading;
+﻿using StreamDeckLib;
 using System.Threading.Tasks;
 
 namespace RageQuitter
 {
     internal class Program
     {
-
         static async Task Main(string[] args)
         {
             using var config = StreamDeckLib.Config.ConfigurationBuilder.BuildDefaultConfiguration(args);
@@ -24,6 +12,5 @@ namespace RageQuitter
                 .RegisterAllActions(typeof(Program).Assembly)
                 .StartAsync();
         }
-
     }
 }
