@@ -22,7 +22,9 @@ namespace RageQuitter
                                       && process.MainModule.FileName != null;
 
                     if (!hasFileName) continue;
-                    var isGame = process.MainModule.FileName.Contains("steamapps");
+
+                    var isWallpaperEngine = process.MainModule.FileName.Contains("wallpaper");
+                    var isGame = process.MainModule.FileName.Contains("steamapps") && !isWallpaperEngine;
 
                     var fileInfo = new FileInfo(process.MainModule.FileName);
                     foreach (var directoryInfo in fileInfo.Directory.GetDirectories())
